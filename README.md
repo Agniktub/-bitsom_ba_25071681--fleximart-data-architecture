@@ -10,31 +10,37 @@ This project implements a complete data pipeline for FlexiMart, an e-commerce pl
 
 ## Repository Structure
 
-├── data/
+```text
+studentID-fleximart-data-architecture/
+├── data/                               # Input data files
 │   ├── customers_raw.csv
 │   ├── products_raw.csv
-│   ├── sales_raw.csv
-│   └── products_catalog.json
-├── part1-database-etl/
+│   └── sales_raw.csv
+│
+├── part1-database-etl/                 # Part 1: Database ETL
 │   ├── README.md
 │   ├── etl_pipeline.py
 │   ├── schema_documentation.md
 │   ├── business_queries.sql
 │   ├── data_quality_report.txt
 │   └── requirements.txt
-├── part2-nosql/
+│
+├── part2-nosql/                        # Part 2: NoSQL
 │   ├── README.md
 │   ├── nosql_analysis.md
 │   ├── mongodb_operations.js
 │   └── products_catalog.json
-├── part3-datawarehouse/
+│
+├── part3-datawarehouse/                # Part 3: Data Warehouse
 │   ├── README.md
 │   ├── star_schema_design.md
 │   ├── warehouse_schema.sql
 │   ├── warehouse_data.sql
 │   └── analytics_queries.sql
+│
 ├── .gitignore
 └── README.md
+
 
 
 
