@@ -1,0 +1,18 @@
+
+### 2. part2-nosql/nosql_analysis.md
+```markdown
+# NoSQL Analysis Report
+
+## Section A: Limitations of RDBMS (150 words)
+
+Relational databases like the current MySQL setup struggle with FlexiMart's expanding product catalog due to their rigid, fixed schema. Different product types have vastly different attributes — laptops need RAM, processor, and storage fields, while shoes require size, color, and material. Fitting these into relational tables results in sparse rows with many NULL values or forces the use of complex EAV (Entity-Attribute-Value) models, which complicate queries and hurt performance. Frequent schema changes when introducing new product categories (e.g., groceries, beauty) require ALTER TABLE statements, risking downtime and migration effort. Storing nested data such as customer reviews with varying fields (rating, comment, photos) demands separate normalized tables and multiple JOINs, leading to slower read performance in review-heavy operations. Overall, RDBMS rigidity limits agility and scalability for semi-structured, rapidly evolving e-commerce product data. (148 words)
+
+## Section B: NoSQL Benefits (150 words)
+
+MongoDB's document-oriented model perfectly addresses these challenges with its schema-flexible design. Each product is stored as a single document that can have unique fields — a smartphone document can include "camera" and "battery", while a shirt document has "fabric" and "sizes_available" without wasting space on NULLs or requiring schema changes. New product types can be added instantly without migration. Embedded documents allow nesting reviews directly inside the product document as an array, eliminating JOINs and enabling fast retrieval of a product with all its reviews in a single query. MongoDB also supports horizontal scalability through sharding, easily handling growth in catalog size and traffic. This flexibility, combined with efficient reads for nested data, makes MongoDB ideal for FlexiMart's diverse and evolving product catalog. (142 words)
+
+## Section C: Trade-offs (100 words)
+
+Two key disadvantages of choosing MongoDB over MySQL for the product catalog are:  
+1. Weaker transactional guarantees — MongoDB's multi-document transactions are slower and less mature than MySQL's, which could affect consistency during concurrent operations like stock updates across multiple products.  
+2. Data duplication and potential inconsistencies — to avoid joins, data is often denormalized (e.g., embedding category or brand info), increasing storage usage and requiring careful update strategies to prevent stale data when attributes change. (82 words)
